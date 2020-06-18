@@ -4,7 +4,6 @@ def home(request):
     import requests
     import json
 
-    api_request = requests.get("https://cloud.iexapis.com/stable/stock/aapl/batch?types=quote,news,chart&range=1m&last=10&")
 
     try:
         api = json.loads(api_request.content)
