@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from .models import Stock
 from .forms import StockForm
-from .django.contrib import messages
+from django.contrib import messages
 
 def home(request):
     import requests
@@ -9,7 +9,7 @@ def home(request):
 
     if request.method == 'POST':
         ticker = request.POST['ticker']
-       try:
+   try:
             api = json.loads(api_request.content)
         except Exception as e: 
             api = "Error..."
@@ -23,9 +23,10 @@ def about(request):
 def add_stock(request):
     if request.method == 'POST':
         form = StockForm(request.POST or None)
+
         if form.is_valid():
             form.save()
-            message.success(request, ("Stock has been added"))
+            messages.success(request, ("Stock has been added"))
             return redirect('add_stock')
     else:
     
