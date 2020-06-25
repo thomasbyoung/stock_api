@@ -9,7 +9,7 @@ def home(request):
 
     if request.method == 'POST':
         ticker = request.POST['ticker']
-       try:
+        try:
             api = json.loads(api_request.content)
         except Exception as e: 
             api = "Error..."
