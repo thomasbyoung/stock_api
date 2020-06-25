@@ -9,7 +9,7 @@ def home(request):
 
     if request.method == 'POST':
         ticker = request.POST['ticker']
-        try:
+       try:
             api = json.loads(api_request.content)
         except Exception as e: 
             api = "Error..."
@@ -32,3 +32,9 @@ def add_stock(request):
     
         ticker = Stock.objects.all()
         return render(request, 'add_stock.html', {'ticker': ticker})
+
+def delete(request, stock_id):
+    item = Stock.objects.get(pk=stock_id)
+    item.delete()
+    #messages.success(request, ("Stock has been deleted."))
+    return redirect(add_stock)
