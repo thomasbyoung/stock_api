@@ -9,7 +9,7 @@ def home(request):
 
     if request.method == 'POST':
         ticker = request.POST['ticker']
-       try:
+        try:
             api = json.loads(api_request.content)
         except Exception as e: 
             api = "Error..."
@@ -35,8 +35,7 @@ def add_stock(request):
         ticker = Stock.objects.all()
         output = []
         for ticker_item in ticker:
-            api_request = requests.get("https://cloud.iexapis.com/stable/stock/" + str(ticker_item) + "/batch?types=quote,news,chart&range=1m&last=10&token=sk_b54bf28c97aa43e6ba0179653ba6fbac")
-            try:
+           try:
                 api = json.loads(api_request.content)
                 output.append(api)
             except Exception as e: 
