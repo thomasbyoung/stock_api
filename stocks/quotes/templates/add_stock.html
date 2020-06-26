@@ -18,7 +18,6 @@
       <th scope="col">Price</th>
       <th scope="col">Previous Close</th>
       <th scope="col">MKT Cap</th>
-      <th scope="col">Delete</th>
     </tr>
   </thead>
   <tbody>
@@ -30,7 +29,6 @@
                     <td>{{ list_item.quote.latestPrice }}</td>
                     <td>{{ list_item.quote.previousClose }}</td>
                     <td>{{ list_item.quote.marketCap }}</td>
-                    <td><a href="/">X</a></td>
                 </tr>
             {% endfor %}
                 
